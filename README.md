@@ -49,7 +49,7 @@ This step creates an index for a reference genome.
 $bowtie2-build ecolicompletegenome.fasta ecoli_index
 ```
 
->`[ecolicompletegenome.fasta](ecolicompletegenome.fasta)` is the FASTA file used containing the E. coli genome sequence.
+>`ecolicompletegenome.fasta` is the FASTA file used containing the E. coli genome sequence.
 
 >`ecoli_index`: This is the prefix for the index files that will be generated. 
 
