@@ -12,6 +12,18 @@ Variant calling with BCFtools to identify indels and other genomic variants.
 [SAMtools](http://www.htslib.org/)
 [BCFtools](http://www.htslib.org/doc/bcftools.html)
 
+
+## Dependencies:
+Before running the pipeline, ensure you have loaded the required modules on your system. You can do this by using the following commands:
+```
+$ module load miniconda
+$ module load samtools
+$ module load bcftools
+$ module load bowtie2
+```
+> Note: The availability of these modules may depend on your computing environment. If you encounter issues or if these modules are not available, consider installing them using conda or another package manager.
+
+
 ## **Usage:**
 
 > 
@@ -114,9 +126,19 @@ bcftools mpileup -Ou -f ecolicompletegenome.fasta output_sorted.bam | bcftools c
 >
 > `-o variants.vcf`: saves the called variants to a vcf file named `variants.vcf`
 
+### Advanced Configurations:
 
-**####Results:**
+> Custom Genome: If you have a custom E. coli genome, replace ecolicompletegenome.fasta with your FASTA file.
+>
+> Parallel Processing: To speed up the alignment, use the --threads option with Bowtie2.
+
+### Results:
 After executing the pipeline, you'll obtain a VCF file (variants.vcf) containing potential genomic variants in the analyzed reads.
+
+### Troubleshooting:
+> Alignment Errors: Ensure the index and query files are in the same directory.
+>
+> Dependencies: Check if all the prerequisites and dependencies are correctly installed.
 
 ## Contributing:
 Feel free to fork the project, make your improvements, and submit a pull request. Your contributions are always welcome!
