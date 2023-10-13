@@ -133,7 +133,7 @@ bcftools mpileup -Ou -f ecolicompletegenome.fasta output_sorted.bam | bcftools c
 > Parallel Processing: To speed up the alignment, use the --threads option with Bowtie2.
 
 ### Results:
-After executing the pipeline, you'll obtain a VCF file (variants.vcf) containing potential genomic variants in the analyzed reads.
+After executing the pipeline, you'll obtain a VCF file ([variants.vcf](result/raw_variants.vcf)) containing potential genomic variants in the analyzed reads.
 
 ### Troubleshooting:
 > Alignment Errors: Ensure the index and query files are in the same directory.
