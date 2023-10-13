@@ -13,14 +13,18 @@ Variant calling with BCFtools to identify indels and other genomic variants.
 [BCFtools](http://www.htslib.org/doc/bcftools.html)
 
 ## **Usage:**
-### 1. Clone the Repository to your local machine.:
+
+> 
+>#### In the sections below, I will provide step-by-step instructions for running the EcoliBowtie2AlignmentAnalysis pipeline and also explain each command and its components.
+> 
+
+### 1. Clone the Repository to your local machine:
 
 ```
 git clone https://github.com/YourUsername/EcoliBowtie2AlignmentAnalysis.git
 ```
 
-After cloning the repository, the next step is to navigate into the directory that was just created, by using
-
+Next, navigate into the directory using:
 ```
 $cd EcoliBowtie2AlignmentAnalysis
 ```
@@ -52,7 +56,7 @@ $bowtie2 -x ecoli_index -f query_seqs.fasta -S output.sam
 
 >`-x ecoli_index` specifies the prefix of the index files (created in the previous step).
 >
->`-f` indicates that the input sequences are in FASTA format. (change to `-U` for FASTAq format)
+>`-f` indicates that the input sequences are in FASTA format. (Use -U for unpaired FASTQ files.)
 >
 >`query_seqs.fasta`: This is the example file containing the query sequences to align to the E. coli genome.
 >
@@ -88,7 +92,7 @@ $samtools sort output.bam -o output_sorted.bam
 
 This steps uses two tools from the bcftools suite -- mpileup and call -- to detect variants (like SNPs and indels) from a sorted BAM file of sequence alignments. 
 
-First, `bcftools mpileup` is used to help in visualizing how reads from the query align to each position in the ecoli reference genome. Then, we pass the pileup file in BCF format to `bcftools call' to determine where the sample differs from the reference based on the pileup of aligned reads.
+First, `bcftools mpileup` is used to help in visualizing how reads from the query align to each position in the ecoli reference genome. Then, we pass the pileup file in BCF format to `bcftools call` to determine where the sample differs from the reference based on the pileup of aligned reads.
 
 ```
 bcftools mpileup -Ou -f ecolicompletegenome.fasta output_sorted.bam | bcftools call -Ov -mv -o variants.vcf
@@ -121,4 +125,4 @@ Feel free to fork the project, make your improvements, and submit a pull request
 This project is licensed under the MIT License. Refer to the LICENSE file for more details.
 
 ## Acknowledgements:
-Thanks to the BF527 course for inspiring this project and providing the datasets.
+Thanks to the BF527 course at Boston University for inspiring this project and providing the datasets.
